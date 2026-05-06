@@ -32,7 +32,8 @@
         "dev-libs/jemalloc": "stats",
         "media-libs/libheif": "x265",
         "media-gfx/imagemagick": "heif -openmp", // pecl-imagick requests openmp to be disabled
-        "media-video/ffmpeg": "mp3 xvid x264 x265 vpx theora truetype v4l vorbis webp vdpau fontconfig librtmp"
+        "media-video/ffmpeg": "mp3 xvid x264 x265 vpx theora truetype v4l vorbis webp vdpau fontconfig librtmp",
+        "net-libs/ngtcp2": "gnutls",
     },
     license:{
         "net-analyzer/fping":"fping",
