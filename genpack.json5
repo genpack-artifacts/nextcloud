@@ -39,7 +39,7 @@
         "net-analyzer/fping":"fping",
         "dev-db/redis": "SSPL-1"
     },
-    services:["apache2", "mysqld", "postfix", "redis"],
+    services:["apache2", "mysqld", "postfix", "redis", "vsock-export-apache"],
     setup_commands: [
         "sed -i 's/-D SSL //' /etc/conf.d/apache2",
         "echo '*/5 * * * * php -f /var/www/localhost/htdocs/cron.php' | crontab -u apache -"
