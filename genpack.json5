@@ -46,10 +46,6 @@
         "net-analyzer/fping":"fping",
         "dev-db/redis": "SSPL-1"
     },
-    circulardep_breaker: {
-        packages: [ "media-libs/freetype", "media-libs/harfbuzz" ],
-        use: "-truetype -harfbuzz"
-    },
     services:["apache2", "mysqld", "postfix", "redis", "vsock-export-apache"],
     setup_commands: [
         "sed -i 's/-D SSL //' /etc/conf.d/apache2",
