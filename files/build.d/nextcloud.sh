@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# required by pecl install (phpize calls autoconf to build smbclient extension)
+require-installed dev-build/autoconf
+
 # setup database
 cat << 'EOS' > /tmp/sql
 create database `nextcloud`;

@@ -17,6 +17,9 @@
         "dev-vcs/git",
         "net-vpn/frp",
     ],
+    buildtime_packages: [
+        "dev-build/autoconf", // needed by nextcloud.sh (pecl install smbclient)
+    ],
     accept_keywords: {
         "net-vpn/frp": null,
     },
