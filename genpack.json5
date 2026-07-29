@@ -55,10 +55,9 @@
         "echo '*/5 * * * * php -f /var/www/localhost/htdocs/cron.php' | crontab -u apache -"
     ],
     variants: {
-        "31": {
-        },
-        "32": {
-        },
+        "31": {},
+        "32": {},
+        "33": {},
         "selftestable": {
             profile: "weston/paravirt",
             packages: [

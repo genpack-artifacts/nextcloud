@@ -33,6 +33,19 @@ else
 	ln -s ../ext/smbclient.ini $PHP_CLI_DIR/ext-active/smbclient.ini
 	ln -s ../ext/smbclient.ini $PHP_APACHE2_DIR/ext-active/smbclient.ini
 	PHP_INI=/etc/php/*/php.ini
+
+	# tune OPcache for the apache2 and cli SAPIs: this image ships as a
+	# read-only squashfs, so source files never change at runtime and the
+	# per-request mtime-validation stat() calls that
+	# opcache.validate_timestamps=1 (the default) incurs are pure waste.
+	for OPCACHE_INI in "$PHP_APACHE2_DIR/ext/opcache.ini" "$PHP_CLI_DIR/ext/opcache.ini"; do
+		sed -i '$a\
+opcache.enable=1\
+opcache.validate_timestamps=0\
+opcache.interned_strings_buffer=16\
+opcache.max_accelerated_files=10000\
+opcache.memory_consumption=128' "$OPCACHE_INI"
+	done
 fi
 
 sed -i 's/^upload_max_filesize.\+$/upload_max_filesize = 512M/' $PHP_INI
